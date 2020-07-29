@@ -1,5 +1,13 @@
 Answer the following questions for each of the data structures you implemented as part of this project.
 
+To analyze runtime complexity:
+1) Does number of steps increase if input size increases
+2) Go line by line, figure out big-O of each line and add
+3) If loop:
+    3.1)Look at code inside loop and repeat step 2
+    3.2)Calculate how many times the loop will run
+    3.3)Result of 3.1 x 3.2
+
 ## Stack
 
 1. What is the runtime complexity of `push` using a list?
