@@ -9,6 +9,8 @@ return elements in First In First Out order.
    Make sure the Queue tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Queue?
+   As far as performance array's are 0(1) for access and 
+0(n) for search insertion and deletion. While queues are 0(1) for insertion and deletion, and 0(n) for access and search.
    
 Stretch: What if you could only use instances of your Stack class to implement the Queue?
          What would that look like? How many Stacks would you need? Try it!
@@ -16,40 +18,40 @@ Stretch: What if you could only use instances of your Stack class to implement t
 
 from singly_linked_list import LinkedList
 
-class Queue:
-    def __init__(self):
-        self.size = 0
-        self.storage = []
-    
-    def __len__(self):
-        return self.size
-
-    def enqueue(self, value):
-        self.storage.append(value)
-        self.size +=1
-
-    def dequeue(self):
-        if self.size<1:
-            return None
-        else:
-            self.storage.pop()
-            self.size -=1
-
 # class Queue:
 #     def __init__(self):
 #         self.size = 0
-#         self.storage = LinkedList()
+#         self.storage = []
     
 #     def __len__(self):
 #         return self.size
 
 #     def enqueue(self, value):
-#         self.storage.add_to_tail()
+#         self.storage.append(value)
 #         self.size +=1
 
-#     def __dequeue__(self):
-#         if self.size<1:
+#     def dequeue(self):
+#         if self.size==0:
 #             return None
 #         else:
-#             self.storage.remove_head()
 #             self.size -=1
+#             return self.storage.pop(0)            
+
+class Queue:
+    def __init__(self):
+        self.size = 0
+        self.storage = LinkedList()
+    
+    def __len__(self):
+        return self.size
+
+    def enqueue(self, value):
+        self.storage.add_to_tail(value)
+        self.size +=1
+
+    def dequeue(self):
+        if self.size==0:
+            return None
+        else:
+            self.size -= 1
+            return self.storage.remove_head()
