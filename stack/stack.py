@@ -9,6 +9,8 @@ return elements in Last In First Out order.
    Make sure the Stack tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
+As far as performance array's are 0(1) for access and 
+0(n) for search insertion and deletion. While stacks are 0(1) with insertion and deletion. For access and search stacks are 0(n)
 """
 from singly_linked_list import LinkedList
 
@@ -25,11 +27,12 @@ from singly_linked_list import LinkedList
 #         self.size += 1
 
 #     def pop(self):
-#         if self.size<1:
+#         if self.size==0:
 #             return None
 #         else: 
-#             self.storage.pop()
 #             self.size-=1
+#             return self.storage.pop()
+            
 
 class Stack:
     def __init__(self):
@@ -44,8 +47,8 @@ class Stack:
         self.size +=1
 
     def pop(self):
-        if self.size<1:
+        if self.size==0:
             return None
-        else:
-            self.storage.remove_head()
+        else: 
             self.size -=1
+            return self.storage.remove_head()
