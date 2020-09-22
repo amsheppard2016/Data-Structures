@@ -52,3 +52,6 @@ class Stack:
         else: 
             self.size -=1
             return self.storage.remove_tail()
+
+    def peek(self):
+        return self.storage[-1]

@@ -2,12 +2,12 @@
 
 # lets make some node class
 class Node:
-    def __init__(self, value, next_node = None, prev_node = None):
+    def __init__(self, value, next_node = None):
         # value that the node is holding
         self.value = value
         # ref to the next node in the chain
         self.next_node = next_node
-        self.prev_node = prev_node
+        
     
 
     def get_value(self):
@@ -28,12 +28,6 @@ class Node:
         """
         self.next_node = new_next
 
-    def get_prev(self):
-        return self.prev_node
-    
-    def set_prev(self, new_prev):
-        self.prev_node = new_prev
-    
 
 
 # now lets think of how we can make nodes interact in a way that consolidates their pieces together
@@ -109,7 +103,7 @@ class LinkedList:
             self.tail = new_node
         else:
             #set head.previous to new_node
-            self.head.set_prev(new_node)
+            new_node.next = self.head
             #set head.previous to self.head
             self.head = new_node
 
